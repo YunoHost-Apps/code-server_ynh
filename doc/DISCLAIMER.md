@@ -1,12 +1,10 @@
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+### Limitations
 
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+* Requires a dedicated domain
+* Single-user, no LDAP
+* Subdomains for services on ports (like 8080.code-server-domain.tld) are not supported
+
+### Other info
+
+* The package does not create a dedicated system user, rather during installation you are asked what user you want code-server to run as. **Don't give access to users you don't fully trust!**
+* You can optionally set a password required to access code-server. **Don't leave this blank if you have allowed public access!**

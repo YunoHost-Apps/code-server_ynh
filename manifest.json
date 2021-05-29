@@ -1,34 +1,31 @@
 {
-    "name": "Example app",
-    "id": "example",
+    "name": "code-server",
+    "id": "code-server",
     "packaging_format": 1,
     "description": {
-        "en": "Explain in *a few (10~15) words* the purpose of the app or what it actually does (it is meant to give a rough idea to users browsing a catalog of 100+ apps)",
-        "fr": "Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)"
+        "en": "Run VS Code on your server and access it in the browser",
+        "fr": "Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur"
     },
-    "version": "1.0~ynh1",
-    "url": "https://example.com",
+    "version": "3.10.2~ynh1",
+    "url": "https://github.com/cdr/code-server",
     "upstream": {
-        "license": "free",
-        "website": "https://example.com",
-        "demo": "https://demo.example.com",
-        "admindoc": "https://yunohost.org/packaging_apps",
-        "userdoc": "https://yunohost.org/apps",
-        "code": "https://some.forge.com/example/example"
+        "license": "mit",
+        "website": "https://github.com/cdr/code-server",
+        "admindoc": "https://github.com/cdr/code-server/tree/main/docs",
+        "userdoc": "https://github.com/cdr/code-server/tree/main/docs",
+        "code": "https://github.com/cdr/code-server"
     },
-    "license": "free",
+    "license": "MIT",
     "maintainer": {
-        "name": "John doe",
-        "email": "john.doe@example.com"
+        "name": "Jules Bertholet",
+        "email": "jules.bertholet@gmail.com"
     },
     "requirements": {
         "yunohost": ">= 4.1.3"
     },
     "multi_instance": true,
     "services": [
-        "nginx",
-        "php7.3-fpm",
-        "mysql"
+        "nginx"
     ],
     "arguments": {
         "install" : [
@@ -36,12 +33,6 @@
                 "name": "domain",
                 "type": "domain",
                 "example": "example.com"
-            },
-            {
-                "name": "path",
-                "type": "path",
-                "example": "/example",
-                "default": "/example"
             },
             {
                 "name": "admin",
@@ -54,23 +45,38 @@
                 "default": true
             },
             {
-                "name": "language",
-                "type": "string",
-                "ask": {
-                    "en": "Choose the application language",
-                    "fr": "Choisissez la langue de l'application"
-                },
-                "choices": ["fr", "en"],
-                "default": "fr"
-            },
-            {
                 "name": "password",
                 "type": "password",
-                "help": {
-                    "en": "Use the help field to add an information for the admin about this question.",
-                    "fr": "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
+                "example": "Choose a password",
+                "optional": true
+            },
+            {
+                "name": "extension_service_url",
+                "type": "string",
+                "ask": {
+                    "en": "Choose a custom extension gallery serviceUrl (https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions--marketplace)",
+                    "fr": "choisir un serviceUrl de galerie d'extensions personnalisé  (https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions--marketplace)"
                 },
-                "example": "Choose a password"
+                "optional": true
+            },
+            {
+                "name": "extension_item_url",
+                "type": "string",
+                "ask": {
+                    "en": "Choose a custom extension gallery itemUrl (https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions--marketplace)",
+                    "fr": "choisir un itemUrl de galerie d'extensions personnalisé (https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions--marketplace)"
+                },
+                "optional": true
+            },
+            {
+                "name": "enable_proposed_api",
+                "type": "string",
+                "ask": {
+                    "en": "Choose a list of extensions that can access proposed APIs (https://github.com/VSCodium/vscodium/blob/master/DOCS.md#proprietary-extensions)",
+                    "fr": "choisir une liste d'extensions qui peuvent accéder aux APIs proposées (https://github.com/VSCodium/vscodium/blob/master/DOCS.md#proprietary-extensions)"
+                },
+                "optional": true,
+                "example": "extension.id, another.extension.id"
             }
         ]
     }
