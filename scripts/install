@@ -88,7 +88,7 @@ install_dependencies
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..."--weight=25
+ynh_script_progression --message="Setting up source files..." --weight=25
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 ynh_app_setting_set --app=$app --key=data_path --value=$data_path

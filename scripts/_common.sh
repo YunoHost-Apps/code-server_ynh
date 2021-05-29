@@ -54,18 +54,20 @@ function set_node_vars {
 function build_app {
 	set_node_vars
 
+	set +x 
+
 	pushd "$final_path"
 		chown -R $admin:$admin "$final_path"
 		sudo -u $admin touch $final_path/.yarnrc
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" config set python python3 2>&1
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" install 2>&1
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" build 2>&1
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" build:vscode 2>&1
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" release 2>&1
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" config set python python3 1>&2
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" install 1>&2
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" build 1>&2
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" build:vscode 1>&2
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" release 1>&2
 		cd release
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" install --production 2>&1
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" install --production 1>&2
 		cd ..
-		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" release:standalone 2>&1
+		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" release:standalone 1>&2
 	popd
 
 	set_permissions
