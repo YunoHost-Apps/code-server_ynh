@@ -5,7 +5,7 @@
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="git jq build-essential nodejs g++ gettext-base"
+pkg_dependencies="git jq build-essential nodejs g++ gettext-base rsync"
 
 #=================================================
 # PERSONAL HELPERS
@@ -63,6 +63,7 @@ function build_app {
 		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" install 1>&2
 		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" build 1>&2
 		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" build:vscode 1>&2
+		echo "done with build"
 		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" release 1>&2
 		cd release
 		sudo -u $admin env "PATH=$node_path" yarn --cache-folder "$final_path/yarn-cache" --use-yarnrc "$final_path/.yarnrc" install --production 1>&2
