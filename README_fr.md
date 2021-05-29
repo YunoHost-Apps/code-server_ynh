@@ -1,66 +1,57 @@
-# Example app pour YunoHost
+# code-server pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/example.svg)](https://dash.yunohost.org/appci/app/example) ![](https://ci-apps.yunohost.org/ci/badges/example.status.svg)  ![](https://ci-apps.yunohost.org/ci/badges/example.maintain.svg)
-[![Installer example avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=example)
+[![Niveau d'intégration](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)  
+[![Installer code-server avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
 *[Read this readme in english.](./README.md)*
 *[Lire ce readme en français.](./README_fr.md)*
 
-> *This package allows you to install example quickly and simply on a YunoHost server.
+> *This package allows you to install code-server quickly and simply on a YunoHost server.
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Vue d'ensemble
 
-Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)
+Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
-**Version incluse:** 1.0~ynh1
+**Version incluse:** 3.10.2~ynh1
 
-**Démo:** https://demo.example.com
 
 
 ## Captures d'écran
 
-
-   ![](./doc/screenshots/example.jpg)
-
-
-
+![](./doc/screenshots/screenshot.png)
 
 ## Avertissements / informations importantes
 
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+### Limitations
 
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+* Nécessite un domaine dédié
+* Un seul utilisateur seulement, pas de LDAP
+* Les sous-domaines pour les services sur les ports (like 8080.code-server-domain.tld) ne sont pas pris en charge
 
+### Other info
 
+* Le paquet ne crée pas d'utilisateur système dédié; on vous demandera pendant l'installation quel utilisateur vous voulez que cod-serveur éxecute en tant que. **Ne donnez pas accès à des utilisateurs en lesquels vous n'avez pas complètement confiance !**
+* Vous pouvez demander un mot de passe pour accéder à code-server (facultatif). **Ne laissez pas le champ mot-de-passe vide si vous avez permis l'accès public !**
 
 ## Documentations et ressources
 
-* Site official de l'app : https://example.com
-* Documentation officielle utilisateur: https://yunohost.org/apps
-* Documentation officielle de l'admin: https://yunohost.org/packaging_apps
-* Dépôt de code officiel de l'app:  https://some.forge.com/example/example
-* Documentation YunoHost pour cette app: https://yunohost.org/app_example
-* Signaler un bug: https://github.com/YunoHost-Apps/example_ynh/issues
+* Site officiel de l'app : https://github.com/cdr/code-server
+* Documentation officielle utilisateur : https://github.com/cdr/code-server/tree/main/docs
+* Documentation officielle de l'admin : https://github.com/cdr/code-server/tree/main/docs
+* Dépôt de code officiel de l'app :  https://github.com/cdr/code-server
+* Documentation YunoHost pour cette app : https://yunohost.org/app_code-server
+* Signaler un bug: https://github.com/YunoHost-Apps/code-server_ynh/issues
 
 ## Informations pour les développeurs
 
-Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/example_ynh/tree/testing).
+Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/code-server_ynh/tree/testing).
 
 Pour essayer la branche testing, procédez comme suit.
 ```
-sudo yunohost app install https://github.com/YunoHost-Apps/example_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
 or
-sudo yunohost app upgrade example -u https://github.com/YunoHost-Apps/example_ynh/tree/testing --debug
+sudo yunohost app upgrade code-server -u https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
 ```
 
 **Plus d'infos sur le packaging d'applications:** https://yunohost.org/packaging_apps
