@@ -8,7 +8,7 @@ User=__ADMIN__
 Group=__ADMIN__
 WorkingDirectory=/home/__ADMIN__/
 EnvironmentFile=__FINALPATH__/code-server.env
-ExecStart=__FINALPATH__/release-standalone/bin/code-server --config __FINALPATH__/config.yaml
+ExecStart=/usr/bin/env bash -l -c "__FINALPATH__/release-standalone/bin/code-server --config __FINALPATH__/config.yaml"
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 
