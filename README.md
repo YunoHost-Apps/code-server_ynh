@@ -43,7 +43,7 @@ Run VS Code on your server and access it in the browser
 * Official app website: https://github.com/cdr/code-server
 * Official user documentation: https://github.com/cdr/code-server/tree/main/docs
 * Official admin documentation: https://github.com/cdr/code-server/tree/main/docs
-* Upstream app code repository:  https://github.com/cdr/code-server
+* Upstream app code repository: https://github.com/cdr/code-server
 * YunoHost documentation for this app: https://yunohost.org/app_code-server
 * Report a bug: https://github.com/YunoHost-Apps/code-server_ynh/issues
 
