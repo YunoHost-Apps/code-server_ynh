@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
-**Version incluse :** 3.10.2~ynh2
+**Version incluse :** 3.11.0~ynh1
 
 
 
