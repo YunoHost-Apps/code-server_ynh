@@ -23,7 +23,7 @@ function setup_source {
 	pushd "$final_path"
 		git fetch --all 2>&1
 		git reset --hard 2>&1
-		git checkout c04198697698dc72b5981fd1b70d6ecbd9b22caa 2>&1
+		git checkout 798dc0baf284416dbbf951e4ef596beeab6cb6c4 2>&1
 	popd
 
 	ynh_replace_special_string -m "throw new Error('compilation requires 4GB of RAM')" -r "console.log('compilation requires 4GB of RAM')" -f "$final_path/lib/vscode/build/lib/compilation.js"
