@@ -12,9 +12,15 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..." --weight=1
+ynh_script_progression --message="Loading installation settings..." --time --weight=1
 
-load_settings
+app=$YNH_APP_INSTANCE_NAME
+
+domain=$(ynh_app_setting_get --app=$app --key=domain)
+admin=$(ynh_app_setting_get --app=$app --key=admin)
+port=$(ynh_app_setting_get --app=$app --key=port)
+final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+datadir=$(ynh_app_setting_get --app=$app --key=datadir)
 
 #=================================================
 # CHECK VERSION
@@ -25,7 +31,7 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=50
+ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --time --weight=1
 
 # Backup the current version of the app
 ynh_backup_before_upgrade
@@ -41,9 +47,37 @@ ynh_abort_if_errors
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping a systemd service..." --weight=1
+ynh_script_progression --message="Stopping a systemd service..." --time --weight=1
 
 ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app/$app.log"
+
+#=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression --message="Ensuring downward compatibility..." --time --weight=1
+
+
+# Upgrade from 3.11.0~ynh1
+extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
+extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
+
+if [ "$extension_service_url" ] && [ "$extension_item_url" ]
+then
+	echo "EXTENSIONS_GALLERY='{\"serviceUrl\": \"$extension_service_url\",\"itemUrl\": \"$extension_item_url\"}'" > "$final_path/code-server.env"
+
+	ynh_app_setting_delete --app=$app --key="extension_service_url"
+	ynh_app_setting_delete --app=$app --key="extension_item_url"
+fi
+
+enable_proposed_api=$(ynh_app_setting_get --app=$app --key="enable_proposed_api")
+
+if [ "$enable_proposed_api" ]
+then
+	ynh_print_warn --message="Custom enable-proposed-api detected. You'll have to enable them through application config panel."
+	ynh_print_warn --message="enable-proposed-api was set to: $enable_proposed_api"
+
+	ynh_app_setting_delete --app=$app --key="enable_proposed_api"
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -51,50 +85,44 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-	ynh_script_progression --message="Upgrading source files..." --weight=5
+	ynh_script_progression --message="Upgrading source files..." --time --weight=1
 
-	setup_source
+	# Download, check integrity, uncompress and patch the source from app.src
+	ynh_setup_source --dest_dir="$final_path" --source_id="$YNH_ARCH"
 fi
+
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R root:$admin "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
+ynh_script_progression --message="Upgrading NGINX web server configuration..." --time --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
 
 #=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-ynh_script_progression --message="Upgrading dependencies..." --weight=15
-
-install_dependencies
-
-#=================================================
 # SPECIFIC UPGRADE
 #=================================================
-# BUILD APP
+# ...
 #=================================================
 
-if [ "$upgrade_type" == "UPGRADE_APP" ]
-then
-	ynh_script_progression --message="Compiling code-server..." --weight=600
-
-	build_app
-fi
-
 #=================================================
-# UPDATE CONFIG FILES
+# UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Updating a configuration file..."  --weight=1
+ynh_script_progression --message="Updating a configuration file..." --time --weight=1
 
-add_configs
+ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
+
+chmod 440 "$final_path/config.yaml"
+chown root:$admin "$final_path/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression --message="Upgrading systemd configuration..." --weight=1
+ynh_script_progression --message="Upgrading systemd configuration..." --time --weight=1
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
@@ -104,7 +132,7 @@ ynh_add_systemd_config
 #=================================================
 # SETUP LOGROTATE
 #=================================================
-ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1
+ynh_script_progression --message="Upgrading logrotate configuration..." --time --weight=1
 
 # Use logrotate to manage app-specific logfile(s)
 ynh_use_logrotate --non-append
@@ -112,29 +140,21 @@ ynh_use_logrotate --non-append
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
+ynh_script_progression --message="Integrating service in YunoHost..." --time --weight=1
 
-yunohost service add $app --description="Server for accessing VS Code from the browser" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Starting a systemd service..." --time --weight=1
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log" --line_match=" HTTP server listening on "
-
-#=================================================
-# UPGRADE FAIL2BAN
-#=================================================
-ynh_script_progression --message="Reconfiguring Fail2Ban..." --weight=1
-
-# Create a dedicated Fail2Ban config
-ynh_add_fail2ban_config --logpath="/var/log/$app/$app.log" --failregex='^Failed login attempt {"xForwardedFor":"<HOST>"'
+ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
+ynh_script_progression --message="Reloading NGINX web server..." --time --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -142,4 +162,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression --message="Upgrade of $app completed" --time --last
