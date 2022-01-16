@@ -25,6 +25,7 @@ ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
 admin=$YNH_APP_ARG_ADMIN
+auth="none"
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -46,6 +47,7 @@ ynh_script_progression --message="Storing installation settings..." --weight=2
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=admin --value=$admin
+ynh_app_setting_set --app=$app --key=auth --value=$auth
 
 #=================================================
 # STANDARD MODIFICATIONS
