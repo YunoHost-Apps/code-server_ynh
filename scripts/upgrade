@@ -21,8 +21,10 @@ admin=$(ynh_app_setting_get --app=$app --key=admin)
 port=$(ynh_app_setting_get --app=$app --key=port)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 datadir=$(ynh_app_setting_get --app=$app --key=datadir)
-auth_type=$(ynh_app_setting_get --app=$app --key=auth_type)
+auth=$(ynh_app_setting_get --app=$app --key=auth)
 hashed_password=$(ynh_app_setting_get --app=$app --key=hashed_password)
+enable_proposed_api=$(ynh_app_setting_get --app=$app --key="enable_proposed_api")
+extensions_gallery=$(ynh_app_setting_get --app=$app --key="extensions_gallery")
 
 #=================================================
 # CHECK VERSION
@@ -58,27 +60,31 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --time --weight=1
 
-
-# Upgrade from 3.11.0~ynh1
-extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
-extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
-
-if [ "$extension_service_url" ] && [ "$extension_item_url" ]
+if ynh_compare_current_package_version -c le -v "3.11.0~ynh1"
 then
-	echo "EXTENSIONS_GALLERY='{\"serviceUrl\": \"$extension_service_url\",\"itemUrl\": \"$extension_item_url\"}'" > "$final_path/code-server.env"
+	extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
+	extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
 
-	ynh_app_setting_delete --app=$app --key="extension_service_url"
-	ynh_app_setting_delete --app=$app --key="extension_item_url"
-fi
+	if [ "$extension_service_url" ] && [ "$extension_item_url" ]
+	then
+		extensions_gallery="{\"serviceUrl\": \"$extension_service_url\",\"itemUrl\": \"$extension_item_url\"}"
 
-enable_proposed_api=$(ynh_app_setting_get --app=$app --key="enable_proposed_api")
+		ynh_app_setting_set --app=$app --key="extensions_gallery" --value="$extensions_gallery"
 
-if [ "$enable_proposed_api" ]
-then
-	ynh_print_warn --message="Custom enable-proposed-api detected. You'll have to enable them through application config panel."
-	ynh_print_warn --message="enable-proposed-api was set to: $enable_proposed_api"
+		ynh_app_setting_delete --app=$app --key="extension_service_url"
+		ynh_app_setting_delete --app=$app --key="extension_item_url"
+	fi
 
-	ynh_app_setting_delete --app=$app --key="enable_proposed_api"
+	if [ "$enable_proposed_api" ]
+	then
+		ynh_print_warn --message="Custom enable-proposed-api. You have to enable again them through application config panel."
+		ynh_print_warn --message="enable-proposed-api was set to: $enable_proposed_api"
+
+		ynh_app_setting_delete --app=$app --key="enable_proposed_api"
+	fi
+
+	ynh_secure_remove --file=$final_path
+	mkdir -p $final_path
 fi
 
 #=================================================
@@ -117,14 +123,15 @@ ynh_add_nginx_config
 ynh_script_progression --message="Updating a configuration file..." --time --weight=1
 
 ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
+ynh_add_config --template="code-server.env" --destination="$final_path/code-server.env"
 
-if [ $auth == "password" ]
+if [ "$auth" == "password" ]
 then
-	echo "hashed-password: $hashed_password" >> "$final_path/config.py"
+	echo "hashed-password: $hashed_password" >> "$final_path/config.yaml"
 fi
 
-chmod 440 "$final_path/config.yaml"
-chown root:$admin "$final_path/config.yaml"
+chmod 440 "$final_path/config.yaml" "$final_path/code-server.env"
+chown root:$admin "$final_path/config.yaml" "$final_path/code-server.env"
 
 #=================================================
 # SETUP SYSTEMD

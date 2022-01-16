@@ -9,21 +9,23 @@ version = "1.0"
 [main]
 name = "Main configuration"
 services = ["__APP__"]
-    
+
     [main.auth]
     name = "Authentication"
 
-        [main.auth.type]
+        [main.auth.auth]
         ask = "Auth type"
         type = "select"
         choices = ["none", "password"]
         default = "none"
-        bind: ":/opt/yunohost/__APP__/config.yaml"
+        optional = false
+        bind = ":/opt/yunohost/__APP__/config.yaml"
 
         [main.auth.password]
         ask = "Password"
         type = "password"
-        visible = "main.auth.type == 'password'"
+        optional = true
+        visible = "auth == 'password'"
     
     [main.extensions]
     name = "Extensions"
@@ -33,10 +35,10 @@ services = ["__APP__"]
         ask = "Extensions Gallery"
         type = "string"
         example = "{\"serviceUrl\": \"https://open-vsx.org/vscode/gallery\",\"itemUrl\": \"https://open-vsx.org/vscode/item\"}"
+        optional = false
         bind = ":/opt/yunohost/__APP__/code-server.env"
 
         [main.extensions.enable_proposed_api]
         ask = "Enable Proposed API"
         type = "tags"
         optional = true
-        bind = "enable-proposed-api:/opt/yunohost/__APP__/config.yaml"
