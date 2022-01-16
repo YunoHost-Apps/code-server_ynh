@@ -21,6 +21,8 @@ admin=$(ynh_app_setting_get --app=$app --key=admin)
 port=$(ynh_app_setting_get --app=$app --key=port)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+auth_type=$(ynh_app_setting_get --app=$app --key=auth_type)
+hashed_password=$(ynh_app_setting_get --app=$app --key=hashed_password)
 
 #=================================================
 # CHECK VERSION
@@ -115,6 +117,11 @@ ynh_add_nginx_config
 ynh_script_progression --message="Updating a configuration file..." --time --weight=1
 
 ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
+
+if [ $auth == "password" ]
+then
+	echo "hashed-password: $hashed_password" >> "$final_path/config.py"
+fi
 
 chmod 440 "$final_path/config.yaml"
 chown root:$admin "$final_path/config.yaml"

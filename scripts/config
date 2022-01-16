@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#=================================================
+# GENERIC STARTING
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source /usr/share/yunohost/helpers
+
+ynh_abort_if_errors
+
+#=================================================
+# RETRIEVE ARGUMENTS
+#=================================================
+
+final_path=$(ynh_app_setting_get $app final_path)
+
+#=================================================
+# SPECIFIC GETTERS FOR TOML SHORT KEY
+#=================================================
+
+get__password() {
+    echo YNH_NULL
+}
+
+#=================================================
+# SPECIFIC VALIDATORS FOR TOML SHORT KEYS
+#=================================================
+
+#=================================================
+# SPECIFIC SETTERS FOR TOML SHORT KEYS
+#=================================================
+
+set__password() {
+    hashed_password="$(printf "$password" | sha256sum | cut -d' ' -f1)"
+
+    sed -i "/hashed-password:.*/d" "$final_path/config.py"
+
+    echo "hashed-password: $hashed_password" >> "$final_path/config.py"
+
+    ynh_app_setting_set $app hashed_password $hashed_password
+}
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+ynh_app_config_run $1

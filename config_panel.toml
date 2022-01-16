@@ -10,6 +10,21 @@ version = "1.0"
 name = "Main configuration"
 services = ["__APP__"]
     
+    [main.auth]
+    name = "Authentication"
+
+        [main.auth.type]
+        ask = "Auth type"
+        type = "select"
+        choices = ["none", "password"]
+        default = "none"
+        bind: ":/opt/yunohost/__APP__/config.yaml"
+
+        [main.auth.password]
+        ask = "Password"
+        type = "password"
+        visible = "main.auth.type == 'password'"
+    
     [main.extensions]
     name = "Extensions"
     optional = false
