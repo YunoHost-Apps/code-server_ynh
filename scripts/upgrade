@@ -89,7 +89,7 @@ then
 	else
 		auth="none"
 	fi
-	ynh_app_setting_get --app=$app --key=auth --value=$auth
+	ynh_app_setting_set --app=$app --key="auth" --value=$auth
 
 	ynh_secure_remove --file=$final_path
 	mkdir -p $final_path
