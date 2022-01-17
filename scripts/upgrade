@@ -91,6 +91,8 @@ then
 	fi
 	ynh_app_setting_set --app=$app --key="auth" --value=$auth
 
+	ynh_remove_fail2ban_config
+
 	ynh_secure_remove --file=$final_path
 	mkdir -p $final_path
 fi
