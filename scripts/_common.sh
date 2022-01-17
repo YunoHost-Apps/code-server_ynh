@@ -5,7 +5,6 @@
 #=================================================
 
 extensions_gallery="{\"serviceUrl\": \"https://open-vsx.org/vscode/gallery\",\"itemUrl\": \"https://open-vsx.org/vscode/item\"}"
-auth="none"
 
 #=================================================
 # PERSONAL HELPERS

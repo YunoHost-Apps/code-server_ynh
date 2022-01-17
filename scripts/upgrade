@@ -83,6 +83,14 @@ then
 		ynh_app_setting_delete --app=$app --key="enable_proposed_api"
 	fi
 
+	if [ "$hashed_password" ]
+	then
+		auth="password"
+	else
+		auth="none"
+	fi
+	ynh_app_setting_get --app=$app --key=auth --value=$auth
+
 	ynh_secure_remove --file=$final_path
 	mkdir -p $final_path
 fi
