@@ -35,10 +35,9 @@ Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
 ## Documentations et ressources
 
-* Site officiel de l'app : https://github.com/cdr/code-server
-* Documentation officielle utilisateur : https://github.com/cdr/code-server/tree/main/docs
-* Documentation officielle de l'admin : https://github.com/cdr/code-server/tree/main/docs
-* Dépôt de code officiel de l'app : https://github.com/cdr/code-server
+* Documentation officielle utilisateur : https://coder.com/docs/code-server/latest/FAQ
+* Documentation officielle de l'admin : https://coder.com/docs/code-server/latest
+* Dépôt de code officiel de l'app : https://github.com/coder/code-server
 * Documentation YunoHost pour cette app : https://yunohost.org/app_code-server
 * Signaler un bug : https://github.com/YunoHost-Apps/code-server_ynh/issues
 
