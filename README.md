@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Run VS Code on your server and access it in the browser
 
-**Shipped version:** 3.12.0~ynh1
+**Shipped version:** 4.0.1~ynh1
 
 
 
@@ -27,16 +27,15 @@ Run VS Code on your server and access it in the browser
 
 ## Disclaimers / important information
 
+### Installation
+
+* The package does not create a dedicated system user, rather during installation you are asked what user you want code-server to run as. **Don't give access to users you don't fully trust!**
+
 ### Limitations
 
 * Requires a dedicated domain
 * Single-user, no LDAP
 * Subdomains for services on ports (like 8080.code-server-domain.tld) are not supported
-
-### Other info
-
-* The package does not create a dedicated system user, rather during installation you are asked what user you want code-server to run as. **Don't give access to users you don't fully trust!**
-* You can optionally set a password required to access code-server. **Don't leave this blank if you have allowed public access!**
 
 ## Documentation and resources
 
