@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Run VS Code on your server and access it in the browser
 
-**Shipped version:** 3.11.0~ynh1
+**Shipped version:** 4.0.1~ynh1
 
 
 
@@ -27,23 +27,27 @@ Run VS Code on your server and access it in the browser
 
 ## Disclaimers / important information
 
+### Installation
+
+* The package does not create a dedicated system user, rather during installation you are asked what user you want code-server to run as. **Don't give access to users you don't fully trust!**
+
 ### Limitations
 
 * Requires a dedicated domain
 * Single-user, no LDAP
 * Subdomains for services on ports (like 8080.code-server-domain.tld) are not supported
 
-### Other info
+### Extensions
 
-* The package does not create a dedicated system user, rather during installation you are asked what user you want code-server to run as. **Don't give access to users you don't fully trust!**
-* You can optionally set a password required to access code-server. **Don't leave this blank if you have allowed public access!**
+This application uses [Open VSX Registry](https://open-vsx.org/). You can change this setting from the web admin config panel.
+
+See https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extensions-marketplace
 
 ## Documentation and resources
 
-* Official app website: https://github.com/cdr/code-server
-* Official user documentation: https://github.com/cdr/code-server/tree/main/docs
-* Official admin documentation: https://github.com/cdr/code-server/tree/main/docs
-* Upstream app code repository: https://github.com/cdr/code-server
+* Official user documentation: https://coder.com/docs/code-server/latest/FAQ
+* Official admin documentation: https://coder.com/docs/code-server/latest
+* Upstream app code repository: https://github.com/coder/code-server
 * YunoHost documentation for this app: https://yunohost.org/app_code-server
 * Report a bug: https://github.com/YunoHost-Apps/code-server_ynh/issues
 

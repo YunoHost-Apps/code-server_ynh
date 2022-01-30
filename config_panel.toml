@@ -1,0 +1,44 @@
+version = "1.0"
+
+## (optional) i18n property let you internationalize questions, however this feature 
+## is only available in core configuration panel (like yunohost domain config).
+## So in app config panel this key is ignored for now, but you can internationalize
+## by using a lang dictionary (see property name bellow)
+# i18n = "prefix_translation_key"
+
+[main]
+name = "Main configuration"
+services = ["__APP__"]
+
+    [main.auth]
+    name = "Authentication"
+
+        [main.auth.auth]
+        ask = "Auth type"
+        type = "select"
+        choices = ["none", "password"]
+        default = "none"
+        optional = false
+        bind = ":/opt/yunohost/__APP__/config.yaml"
+
+        [main.auth.password]
+        ask = "Password"
+        type = "password"
+        optional = true
+        visible = "auth == 'password'"
+    
+    [main.extensions]
+    name = "Extensions"
+    optional = false
+        
+        [main.extensions.extensions_gallery]
+        ask = "Extensions Gallery"
+        type = "string"
+        example = "{\"serviceUrl\": \"https://open-vsx.org/vscode/gallery\",\"itemUrl\": \"https://open-vsx.org/vscode/item\"}"
+        optional = false
+        bind = ":/opt/yunohost/__APP__/code-server.env"
+
+        [main.extensions.enable_proposed_api]
+        ask = "Enable Proposed API"
+        type = "tags"
+        optional = true

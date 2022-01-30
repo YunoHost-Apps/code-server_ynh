@@ -1,9 +1,7 @@
 bind-addr: 127.0.0.1:__PORT__
 auth: __AUTH__
-hashed-password: __HASHED_PASSWORD__
 cert: false
 disable-telemetry: true
 disable-update-check: true
-user-data-dir: __DATA_PATH__/user-data
-extensions-dir: __DATA_PATH__/extensions
-__ENABLE_PROPOSED_API_STRING__
+user-data-dir: __DATADIR__/user-data
+extensions-dir: __DATADIR__/extensions
