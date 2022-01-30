@@ -28,6 +28,8 @@ get__enable_proposed_api() {
     echo "$(awk '/enable-proposed-api:/ {print $2}' $final_path/config.yaml)"
 }
 
+# TODO: Write some getters and setters for __EXTENSIONS_GALLERY__ to go back to json directly
+
 #=================================================
 # SPECIFIC VALIDATORS FOR TOML SHORT KEYS
 #=================================================
