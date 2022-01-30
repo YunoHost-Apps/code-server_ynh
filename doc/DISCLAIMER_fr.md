@@ -1,6 +1,6 @@
 ### Installation
 
-* Le paquet ne crée pas d'utilisateur système dédié; on vous demandera pendant l'installation quel utilisateur vous voulez que cod-serveur éxecute en tant que. **Ne donnez pas accès à des utilisateurs en lesquels vous n'avez pas complètement confiance !**
+* Le paquet ne crée pas d'utilisateur système dédié; on vous demandera pendant l'installation quel utilisateur vous voulez que code-serveur éxecute en tant que. **Ne donnez pas accès à des utilisateurs en lesquels vous n'avez pas complètement confiance !**
 
 ### Limitations
 
