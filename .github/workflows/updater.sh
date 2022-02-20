@@ -69,6 +69,9 @@ case $asset_url in
   *"linux-arm64.tar.gz")
     src="arm64"
     ;;
+  *"linux-armv7l.tar.gz")
+    src="armhf"
+    ;;
   *)
     src=""
     ;;
