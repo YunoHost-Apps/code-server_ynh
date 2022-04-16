@@ -10,7 +10,7 @@
 		setup_private=0
 		setup_public=0
 		upgrade=1
-		upgrade=1	from_commit=9bd092ceafb213964c0bfe135538d91b888f1284
+		upgrade=1	from_commit=d4d938378a7b807264f82797cb297daebd1600f0
 		backup_restore=1
 		multi_instance=1
 		port_already_use=0
@@ -19,6 +19,6 @@
 Email=
 Notification=none
 ;;; Upgrade options
-	; commit=9bd092ceafb213964c0bfe135538d91b888f1284
-		name=3.11.0~ynh1
+	; commit=d4d938378a7b807264f82797cb297daebd1600f0
+		name=4.2.0~ynh1
 		manifest_arg=domain=domain.tld&admin=john&is_public=1&password=pass&extension_service_url=&extension_item_url=&enable_proposed_api=
