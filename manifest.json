@@ -14,6 +14,12 @@
         "userdoc": "https://coder.com/docs/code-server/latest/FAQ",
         "code": "https://github.com/coder/code-server"
     },
+    "antifeatures": {
+        "non-free-addons": {
+            "en": "Extensions from the Store might be closed source.",
+            "fr": "Les extensions disponibles sur la gallerie peuvent être privatrices."
+        }
+    },
     "license": "MIT",
     "maintainer": {
         "name": "Tagada"
