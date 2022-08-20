@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # code-server for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![Working status](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)  
 [![Install code-server with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -17,13 +17,11 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Run VS Code on your server and access it in the browser
 
-**Shipped version:** 4.1.0~ynh1
-
-
+**Shipped version:** 4.5.1~ynh1
 
 ## Screenshots
 
-![](./doc/screenshots/screenshot.png)
+![Screenshot of code-server](./doc/screenshots/screenshot.png)
 
 ## Disclaimers / important information
 
@@ -45,21 +43,22 @@ See https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extensions
 
 ## Documentation and resources
 
-* Official user documentation: https://coder.com/docs/code-server/latest/FAQ
-* Official admin documentation: https://coder.com/docs/code-server/latest
-* Upstream app code repository: https://github.com/coder/code-server
-* YunoHost documentation for this app: https://yunohost.org/app_code-server
-* Report a bug: https://github.com/YunoHost-Apps/code-server_ynh/issues
+* Official user documentation: <https://coder.com/docs/code-server/latest/FAQ>
+* Official admin documentation: <https://coder.com/docs/code-server/latest>
+* Upstream app code repository: <https://github.com/coder/code-server>
+* YunoHost documentation for this app: <https://yunohost.org/app_code-server>
+* Report a bug: <https://github.com/YunoHost-Apps/code-server_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/code-server_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade code-server -u https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
