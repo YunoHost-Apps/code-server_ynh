@@ -97,6 +97,18 @@ then
 	mkdir -p $final_path
 fi
 
+if ynh_compare_current_package_version -c le -v "4.1.0~ynh1"
+then
+	new_datadir=/home/$app/.local/share/code-server
+	mkdir -p $new_datadir
+
+	cp -R $datadir/* $new_datadir
+	ynh_secure_remove --file=$datadir
+
+	datadir=new_datadir
+	ynh_app_setting_set --app=$app --key=datadir --value=$datadir
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
