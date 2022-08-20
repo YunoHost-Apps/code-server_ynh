@@ -17,7 +17,8 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Run VS Code on your server and access it in the browser
 
-**Shipped version:** 4.5.1~ynh1
+**Shipped version:** 4.6.0~ynh1
+
 
 ## Screenshots
 
