@@ -10,7 +10,7 @@
     "url": "https://github.com/coder/code-server",
     "upstream": {
         "license": "MIT",
-        "website"; "https://coder.com",
+        "website": "https://coder.com",
         "admindoc": "https://coder.com/docs/code-server/latest",
         "userdoc": "https://coder.com/docs/code-server/latest/FAQ",
         "code": "https://github.com/coder/code-server"
