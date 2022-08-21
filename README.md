@@ -33,12 +33,13 @@ Run VS Code on your server and access it in the browser
 ### Limitations
 
 * Requires a dedicated domain
-* Single-user, no LDAP
+* `code-server` run as the user you choose during the install
+* `code-server` files are stored inside `/home/<your-user>/.local/share/code-server`
 * Subdomains for services on ports (like 8080.code-server-domain.tld) are not supported
 
 ### Extensions
 
-This application uses [Open VSX Registry](https://open-vsx.org/). You can change this setting from the web admin config panel.
+This application uses [Open VSX Registry](https://open-vsx.org/). You can change this setting from the config panel.
 
 See https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extensions-marketplace
 
