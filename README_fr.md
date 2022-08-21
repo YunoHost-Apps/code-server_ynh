@@ -38,6 +38,7 @@ Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
 ## Documentations et ressources
 
+* Site officiel de l'app : <https://coder.com>
 * Documentation officielle utilisateur : <https://coder.com/docs/code-server/latest/FAQ>
 * Documentation officielle de l'admin : <https://coder.com/docs/code-server/latest>
 * Dépôt de code officiel de l'app : <https://github.com/coder/code-server>

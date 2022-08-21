@@ -44,6 +44,7 @@ See https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extensions
 
 ## Documentation and resources
 
+* Official app website: <https://coder.com>
 * Official user documentation: <https://coder.com/docs/code-server/latest/FAQ>
 * Official admin documentation: <https://coder.com/docs/code-server/latest>
 * Upstream app code repository: <https://github.com/coder/code-server>
