@@ -20,6 +20,7 @@ Run VS Code on your server and access it in the browser
 **Shipped version:** 4.6.1~ynh1
 
 
+
 ## Screenshots
 
 ![Screenshot of code-server](./doc/screenshots/screenshot.png)
