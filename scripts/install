@@ -98,7 +98,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Creating a data directory..." --weight=2
 
-datadir=/home/yunohost.app/$app
+datadir=/home/$app/.local/share/code-server
 ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
 mkdir -p $datadir/{user-data,extensions}

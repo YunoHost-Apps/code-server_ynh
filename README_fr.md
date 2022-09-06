@@ -17,7 +17,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
-**Version incluse :** 4.3.0~ynh1
+**Version incluse :** 4.6.1~ynh1
 
 
 ## Captures d'écran
@@ -33,11 +33,19 @@ Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 ### Limitations
 
 * Nécessite un domaine dédié
-* Un seul utilisateur seulement, pas de LDAP
+* `code-server` s'éxécute avec l'utilisateur choisir lors de l'installation
+* Les fichiers de `code-server` sont stockés dans `/home/<votre-utilisateur>/.local/share/code-server`
 * Les sous-domaines pour les services sur les ports (like 8080.code-server-domain.tld) ne sont pas pris en charge
+
+### Extensions
+
+Cette application utilie le [catalogue Open VSX](https://open-vsx.org/). Vous pouvez changer ce paramètre depuis le panneau de configuration.
+
+Voir https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extensions-marketplace *(en anglais)*
 
 ## Documentations et ressources
 
+* Site officiel de l'app : <https://coder.com>
 * Documentation officielle utilisateur : <https://coder.com/docs/code-server/latest/FAQ>
 * Documentation officielle de l'admin : <https://coder.com/docs/code-server/latest>
 * Dépôt de code officiel de l'app : <https://github.com/coder/code-server>
