@@ -12,7 +12,8 @@
         "license": "MIT",
         "admindoc": "https://coder.com/docs/code-server/latest",
         "userdoc": "https://coder.com/docs/code-server/latest/FAQ",
-        "code": "https://github.com/coder/code-server"
+        "code": "https://github.com/coder/code-server",
+        "cpe": "cpe:2.3:a:coder:code-server"
     },
     "license": "MIT",
     "maintainer": {
