@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/coder/code-server/releases/download/v4.5.1/code-server-4.5.1-linux-arm64.tar.gz
-SOURCE_SUM=2028afb9a28286dea13e18ec9e8b65065a9d614a74b80dd8424a688f299059dc
+SOURCE_URL=https://github.com/coder/code-server/releases/download/v4.6.1/code-server-4.6.1-linux-arm64.tar.gz
+SOURCE_SUM=d809153ddd53f4e531020e9bef8729e6ae71ea873d41f916e8ecebbf614201da
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
