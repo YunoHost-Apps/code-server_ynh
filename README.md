@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Run VS Code on your server and access it in the browser
 
-**Shipped version:** 4.7.0~ynh1
+**Shipped version:** 4.7.1~ynh1 *(:warning: This is the `ci-auto-update-v4.7.1` branch. The [`master` branch](https://github.com/YunoHost-Apps/code-server_ynh/tree/master) used in the catalog is currently on version 4.6.1\~ynh1.)*
 
 
 ## Screenshots
