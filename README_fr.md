@@ -17,7 +17,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
-**Version incluse :** 4.7.0~ynh1
+**Version incluse :** 4.7.1~ynh1 *(:warning: Il s'agit de la branche `ci-auto-update-v4.7.1`. La [branche `master`](https://github.com/YunoHost-Apps/code-server_ynh/tree/master) utilisée dans le catalogue est actuellement en 4.6.1\~ynh1.)*
 
 
 ## Captures d'écran
