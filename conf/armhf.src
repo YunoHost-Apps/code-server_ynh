@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/coder/code-server/releases/download/v4.8.2/code-server-4.8.2-linux-armv7l.tar.gz
-SOURCE_SUM=0d29617f1be1c9a4fd8eaad766626f404682f5b8f6ea7a16c7518631fe003565
+SOURCE_URL=https://github.com/coder/code-server/releases/download/v4.8.3/code-server-4.8.3-linux-armv7l.tar.gz
+SOURCE_SUM=6fc7d4623dea3b7869d37ae8a75a26bec6f0bfbf061e7698495e3226defa9101
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
