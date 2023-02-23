@@ -5,23 +5,24 @@ It shall NOT be edited by hand.
 
 # code-server pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+
 [![Installer code-server avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer code-server rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer code-server rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur
 
 **Version incluse :** 4.9.1~ynh1
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de code-server](./doc/screenshots/screenshot.png)
+![Capture d’écran de code-server](./doc/screenshots/screenshot.png)
 
 ## Avertissements / informations importantes
 
@@ -44,10 +45,10 @@ Voir https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extension
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://coder.com>
+* Site officiel de l’app : <https://coder.com>
 * Documentation officielle utilisateur : <https://coder.com/docs/code-server/latest/FAQ>
-* Documentation officielle de l'admin : <https://coder.com/docs/code-server/latest>
-* Dépôt de code officiel de l'app : <https://github.com/coder/code-server>
+* Documentation officielle de l’admin : <https://coder.com/docs/code-server/latest>
+* Dépôt de code officiel de l’app : <https://github.com/coder/code-server>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_code-server>
 * Signaler un bug : <https://github.com/YunoHost-Apps/code-server_ynh/issues>
 
@@ -63,4 +64,4 @@ ou
 sudo yunohost app upgrade code-server -u https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
