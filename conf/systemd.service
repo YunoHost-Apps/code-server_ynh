@@ -1,6 +1,6 @@
 [Unit]
 Description=VS Code Server
-After=network.target
+After=network.target multi-user.target
 
 [Service]
 Type=simple
