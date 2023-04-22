@@ -132,7 +132,7 @@ then
 fi
 
 chmod 440 "$install_dir/config.yaml" "$install_dir/code-server.env"
-chown root:$admin "$install_dir/config.yaml" "$install_dir/code-server.env"
+chown $app:$app "$install_dir/config.yaml" "$install_dir/code-server.env"
 
 #=================================================
 # SETUP SYSTEMD
