@@ -33,20 +33,6 @@ source /usr/share/yunohost/helpers
 upgrade_type=$(ynh_check_app_version_changed)
 
 #=================================================
-# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
-#=================================================
-#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
-
-# Backup the current version of the app
-#REMOVEME? ynh_backup_before_upgrade
-#REMOVEME? ynh_clean_setup () {
-	# Restore it if the upgrade fails
-#REMOVEME? 	ynh_restore_upgradebackup
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
-
-#=================================================
 # STANDARD UPGRADE STEPS
 #=================================================
 # STOP SYSTEMD SERVICE
@@ -62,8 +48,8 @@ ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
 if ynh_compare_current_package_version -c le -v "3.11.0~ynh1"
 then
-#REMOVEME? 	extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
-#REMOVEME? 	extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
+	extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
+	extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
 
 	if [ "$extension_service_url" ] && [ "$extension_item_url" ]
 	then
@@ -93,7 +79,7 @@ then
 
 	ynh_remove_fail2ban_config
 
-#REMOVEME? 	ynh_secure_remove --file=$install_dir
+	ynh_secure_remove --file=$install_dir
 	mkdir -p $install_dir
 fi
 
@@ -103,10 +89,10 @@ then
 	mkdir -p $new_data_dir
 
 	cp -R $data_dir/* $new_data_dir
-#REMOVEME? 	ynh_secure_remove --file=$data_dir
+	ynh_secure_remove --file=$data_dir
 
 	data_dir=new_data_dir
-#REMOVEME? 	ynh_app_setting_set --app=$app --key=data_dir --value=$data_dir
+	ynh_app_setting_set --app=$app --key=data_dir --value=$data_dir
 fi
 
 #=================================================
@@ -121,7 +107,6 @@ then
 	ynh_setup_source --dest_dir="$install_dir" 
 fi
 
-chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R root:$admin "$install_dir"
 
@@ -132,12 +117,6 @@ ynh_script_progression --message="Upgrading NGINX web server configuration..." -
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
-
-#=================================================
-# SPECIFIC UPGRADE
-#=================================================
-# ...
-#=================================================
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -186,13 +165,6 @@ yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$a
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
