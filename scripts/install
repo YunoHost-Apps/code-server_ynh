@@ -50,14 +50,12 @@ yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$a
 ynh_script_progression --message="Adding a configuration file..." --weight=2
 
 ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
-
 chmod 440 "$install_dir/config.yaml"
-chown root:$admin "$install_dir/config.yaml"
+chown $app:$app "$install_dir/config.yaml"
 
 ynh_add_config --template="code-server.env" --destination="$install_dir/code-server.env"
-
 chmod 440 "$install_dir/code-server.env"
-chown root:$admin "$install_dir/code-server.env"
+chown $app:$app "$install_dir/code-server.env"
 
 #=================================================
 # START SYSTEMD SERVICE
