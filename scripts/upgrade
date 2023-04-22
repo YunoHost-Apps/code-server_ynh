@@ -10,23 +10,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
-#=================================================
-#REMOVEME? ynh_script_progression --message="Loading installation settings..." --weight=1
-
-#REMOVEME? app=$YNH_APP_INSTANCE_NAME
-
-#REMOVEME? domain=$(ynh_app_setting_get --app=$app --key=domain)
-#REMOVEME? admin=$(ynh_app_setting_get --app=$app --key=admin)
-#REMOVEME? port=$(ynh_app_setting_get --app=$app --key=port)
-#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
-#REMOVEME? data_dir=$(ynh_app_setting_get --app=$app --key=data_dir)
-#REMOVEME? auth=$(ynh_app_setting_get --app=$app --key=auth)
-#REMOVEME? hashed_password=$(ynh_app_setting_get --app=$app --key=hashed_password)
-#REMOVEME? enable_proposed_api=$(ynh_app_setting_get --app=$app --key="enable_proposed_api")
-#REMOVEME? extensions_gallery=$(ynh_app_setting_get --app=$app --key="extensions_gallery")
-
-#=================================================
 # CHECK VERSION
 #=================================================
 
@@ -83,18 +66,6 @@ then
 	mkdir -p $install_dir
 fi
 
-if ynh_compare_current_package_version -c le -v "4.1.0~ynh1"
-then
-	new_data_dir=/home/$app/.local/share/code-server
-	mkdir -p $new_data_dir
-
-	cp -R $data_dir/* $new_data_dir
-	ynh_secure_remove --file=$data_dir
-
-	data_dir=new_data_dir
-	ynh_app_setting_set --app=$app --key=data_dir --value=$data_dir
-fi
-
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
@@ -108,7 +79,7 @@ then
 fi
 
 chmod -R o-rwx "$install_dir"
-chown -R root:$admin "$install_dir"
+chown -R $app:www-data "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
