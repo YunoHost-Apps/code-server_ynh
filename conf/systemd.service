@@ -4,8 +4,8 @@ After=network.target multi-user.target
 
 [Service]
 Type=simple
-User=__ADMIN__
-Group=__ADMIN__
+User=__APP__
+Group=__APP__
 WorkingDirectory=__DATA_DIR__
 EnvironmentFile=__INSTALL_DIR__/code-server.env
 ExecStart=__INSTALL_DIR__/bin/code-server --config __INSTALL_DIR__/config.yaml

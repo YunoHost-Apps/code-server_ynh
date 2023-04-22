@@ -4,10 +4,7 @@
 
 ### Limitations
 
-* Nécessite un domaine dédié
-* `code-server` s'éxécute avec l'utilisateur choisir lors de l'installation
 * Les fichiers de `code-server` sont stockés dans `/home/<votre-utilisateur>/.local/share/code-server`
-* Les sous-domaines pour les services sur les ports (like 8080.code-server-domain.tld) ne sont pas pris en charge
 
 ### Extensions
 

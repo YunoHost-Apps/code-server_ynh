@@ -4,10 +4,7 @@
 
 ### Limitations
 
-* Requires a dedicated domain
-* `code-server` run as the user you choose during the install
 * `code-server` files are stored inside `/home/<your-user>/.local/share/code-server`
-* Subdomains for services on ports (like 8080.code-server-domain.tld) are not supported
 
 ### Extensions
 

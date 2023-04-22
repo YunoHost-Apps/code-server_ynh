@@ -31,9 +31,6 @@ ram.runtime = "50M"
     type = "domain"
     full_domain = true
 
-    [install.admin]
-    type = "user"
-
 [resources]
         [resources.sources.main]
         arm64.url = "https://github.com/coder/code-server/releases/download/v4.12.0/code-server-4.12.0-linux-arm64.tar.gz"
@@ -59,4 +56,3 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
-    main.allowed = "admins"
