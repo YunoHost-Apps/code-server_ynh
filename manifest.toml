@@ -22,14 +22,17 @@ architectures = ["amd64", "arm64", "armhf"]
 multi_instance = true
 ldap = false
 sso = false
-disk = "50M"
+disk = "500M"
 ram.build = "50M"
-ram.runtime = "50M"
+ram.runtime = "100M"
 
 [install]
     [install.domain]
     type = "domain"
     full_domain = true
+
+    [install.admin]
+    type = "user"
 
 [resources]
         [resources.sources.main]
