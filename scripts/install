@@ -25,7 +25,7 @@ ynh_script_progression --message="Setting up source files..." --weight=5
 ynh_setup_source --dest_dir="$install_dir" 
 
 chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
+chown -R $user:www-data "$install_dir"
 chmod +x "$install_dir/bin/code-server"
 
 #=================================================
@@ -51,11 +51,11 @@ ynh_script_progression --message="Adding a configuration file..." --weight=2
 
 ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 chmod 440 "$install_dir/config.yaml"
-chown $app:$app "$install_dir/config.yaml"
+chown $admin:$admin "$install_dir/config.yaml"
 
 ynh_add_config --template="code-server.env" --destination="$install_dir/code-server.env"
 chmod 440 "$install_dir/code-server.env"
-chown $app:$app "$install_dir/code-server.env"
+chown $admin:$admin "$install_dir/code-server.env"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -64,6 +64,11 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+
+#=================================================
+# SET PERMISSION FOR THE USER
+#=================================================
+ynh_permission_update --permission="main" --add="$admin"
 
 #=================================================
 # END OF SCRIPT

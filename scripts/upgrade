@@ -79,7 +79,7 @@ then
 fi
 
 chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
+chown -R $admin:www-data "$install_dir"
 chmod +x "$install_dir/bin/code-server"
 
 #=================================================
@@ -104,7 +104,7 @@ then
 fi
 
 chmod 440 "$install_dir/config.yaml" "$install_dir/code-server.env"
-chown $app:$app "$install_dir/config.yaml" "$install_dir/code-server.env"
+chown $admin:$admin "$install_dir/config.yaml" "$install_dir/code-server.env"
 
 #=================================================
 # SETUP SYSTEMD

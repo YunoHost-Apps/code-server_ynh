@@ -1,10 +1,10 @@
 ### Installation
 
-* The package does not create a dedicated system user, rather during installation you are asked what user you want code-server to run as. **Don't give access to users you don't fully trust!**
+* VS Code will run as the user you choose during the installation.
 
 ### Limitations
 
-* `code-server` files are stored inside `/home/<your-user>/.local/share/code-server`
+* `code-server` files are stored inside `/home/yunohost.app/<your-user>/.local/share/code-server`
 
 ### Extensions
 

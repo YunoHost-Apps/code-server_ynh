@@ -1,10 +1,10 @@
 ### Installation
 
-* Le paquet ne crée pas d'utilisateur système dédié; on vous demandera pendant l'installation quel utilisateur vous voulez que code-serveur éxecute en tant que. **Ne donnez pas accès à des utilisateurs en lesquels vous n'avez pas complètement confiance !**
+* VS Code sera éxecuté en tant que l'utilisateurice sélectionnée lors de l'installation.
 
 ### Limitations
 
-* Les fichiers de `code-server` sont stockés dans `/home/<votre-utilisateur>/.local/share/code-server`
+* Les fichiers de `code-server` sont stockés dans `/home/yunohost.app/<votre-utilisateur>/.local/share/code-server`
 
 ### Extensions
 
