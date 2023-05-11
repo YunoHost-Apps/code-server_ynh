@@ -60,4 +60,3 @@ ram.runtime = "100M"
 
     [resources.permissions]
     main.url = "/"
-    mail.allowed = "__ADMIN__"
