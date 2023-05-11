@@ -25,7 +25,7 @@ ynh_script_progression --message="Setting up source files..." --weight=5
 ynh_setup_source --dest_dir="$install_dir" 
 
 chmod -R o-rwx "$install_dir"
-chown -R $user:www-data "$install_dir"
+chown -R $admin:www-data "$install_dir"
 chmod +x "$install_dir/bin/code-server"
 
 #=================================================
