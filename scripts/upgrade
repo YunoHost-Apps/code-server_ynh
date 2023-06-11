@@ -12,19 +12,19 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..." --weight=1
+#REMOVEME? ynh_script_progression --message="Loading installation settings..." --weight=1
 
-app=$YNH_APP_INSTANCE_NAME
+#REMOVEME? app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-admin=$(ynh_app_setting_get --app=$app --key=admin)
-port=$(ynh_app_setting_get --app=$app --key=port)
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
-auth=$(ynh_app_setting_get --app=$app --key=auth)
-hashed_password=$(ynh_app_setting_get --app=$app --key=hashed_password)
-enable_proposed_api=$(ynh_app_setting_get --app=$app --key="enable_proposed_api")
-extensions_gallery=$(ynh_app_setting_get --app=$app --key="extensions_gallery")
+#REMOVEME? domain=$(ynh_app_setting_get --app=$app --key=domain)
+#REMOVEME? admin=$(ynh_app_setting_get --app=$app --key=admin)
+#REMOVEME? port=$(ynh_app_setting_get --app=$app --key=port)
+#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
+#REMOVEME? data_dir=$(ynh_app_setting_get --app=$app --key=data_dir)
+#REMOVEME? auth=$(ynh_app_setting_get --app=$app --key=auth)
+#REMOVEME? hashed_password=$(ynh_app_setting_get --app=$app --key=hashed_password)
+#REMOVEME? enable_proposed_api=$(ynh_app_setting_get --app=$app --key="enable_proposed_api")
+#REMOVEME? extensions_gallery=$(ynh_app_setting_get --app=$app --key="extensions_gallery")
 
 #=================================================
 # CHECK VERSION
@@ -35,16 +35,16 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
+#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
 
 # Backup the current version of the app
-ynh_backup_before_upgrade
-ynh_clean_setup () {
+#REMOVEME? ynh_backup_before_upgrade
+#REMOVEME? ynh_clean_setup () {
 	# Restore it if the upgrade fails
-	ynh_restore_upgradebackup
+#REMOVEME? 	ynh_restore_upgradebackup
 }
 # Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -62,8 +62,8 @@ ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
 if ynh_compare_current_package_version -c le -v "3.11.0~ynh1"
 then
-	extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
-	extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
+#REMOVEME? 	extension_service_url=$(ynh_app_setting_get --app=$app --key="extension_service_url")
+#REMOVEME? 	extension_item_url=$(ynh_app_setting_get --app=$app --key="extension_item_url")
 
 	if [ "$extension_service_url" ] && [ "$extension_item_url" ]
 	then
@@ -93,20 +93,20 @@ then
 
 	ynh_remove_fail2ban_config
 
-	ynh_secure_remove --file=$final_path
-	mkdir -p $final_path
+#REMOVEME? 	ynh_secure_remove --file=$install_dir
+	mkdir -p $install_dir
 fi
 
 if ynh_compare_current_package_version -c le -v "4.1.0~ynh1"
 then
-	new_datadir=/home/$app/.local/share/code-server
-	mkdir -p $new_datadir
+	new_data_dir=/home/$app/.local/share/code-server
+	mkdir -p $new_data_dir
 
-	cp -R $datadir/* $new_datadir
-	ynh_secure_remove --file=$datadir
+	cp -R $data_dir/* $new_data_dir
+#REMOVEME? 	ynh_secure_remove --file=$data_dir
 
-	datadir=new_datadir
-	ynh_app_setting_set --app=$app --key=datadir --value=$datadir
+	data_dir=new_data_dir
+#REMOVEME? 	ynh_app_setting_set --app=$app --key=data_dir --value=$data_dir
 fi
 
 #=================================================
@@ -118,12 +118,12 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=1
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path" --source_id="$YNH_ARCH"
+	ynh_setup_source --dest_dir="$install_dir" 
 fi
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R root:$admin "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R root:$admin "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -144,16 +144,16 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Updating a configuration file..." --weight=1
 
-ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
-ynh_add_config --template="code-server.env" --destination="$final_path/code-server.env"
+ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
+ynh_add_config --template="code-server.env" --destination="$install_dir/code-server.env"
 
 if [ "$auth" == "password" ]
 then
-	echo "hashed-password: $hashed_password" >> "$final_path/config.yaml"
+	echo "hashed-password: $hashed_password" >> "$install_dir/config.yaml"
 fi
 
-chmod 440 "$final_path/config.yaml" "$final_path/code-server.env"
-chown root:$admin "$final_path/config.yaml" "$final_path/code-server.env"
+chmod 440 "$install_dir/config.yaml" "$install_dir/code-server.env"
+chown root:$admin "$install_dir/config.yaml" "$install_dir/code-server.env"
 
 #=================================================
 # SETUP SYSTEMD
@@ -190,9 +190,9 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$ap
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
+#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
-ynh_systemd_action --service_name=nginx --action=reload
+#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
