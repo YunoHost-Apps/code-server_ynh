@@ -13,7 +13,7 @@ services = ["__APP__"]
         choices = ["none", "password"]
         default = "none"
         optional = false
-        bind = ":/opt/yunohost/__APP__/config.yaml"
+        bind = ":__INSTALL_DIR__/config.yaml"
 
         [main.auth.password]
         ask = "Password"
@@ -36,7 +36,7 @@ services = ["__APP__"]
         example = "{\"serviceUrl\": \"https://open-vsx.org/vscode/gallery\",\"itemUrl\": \"https://open-vsx.org/vscode/item\"}"
         help = "[Documentation](https://coder.com/docs/code-server/latest/FAQ#how-do-i-use-my-own-extensions-marketplace)"
         optional = false
-        bind = ":/opt/yunohost/__APP__/code-server.env"
+        bind = ":__INSTALL_DIR__/code-server.env"
 
         [main.extensions.enable_proposed_api]
         ask = "Enable Proposed API"

@@ -1,7 +1,0 @@
-SOURCE_URL=https://github.com/coder/code-server/releases/download/v4.13.0/code-server-4.13.0-linux-armv7l.tar.gz
-SOURCE_SUM=20aed6fb13424edc2c1997e3241dc4c7d51a29e0a3e7349696715f61d10762c7
-SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=tar.gz
-SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
-SOURCE_EXTRACT=true

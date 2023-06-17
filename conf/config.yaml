@@ -3,5 +3,5 @@ auth: __AUTH__
 cert: false
 disable-telemetry: true
 disable-update-check: true
-user-data-dir: __DATADIR__/user-data
-extensions-dir: __DATADIR__/extensions
+user-data-dir: __DATA_DIR__/user-data
+extensions-dir: __DATA_DIR__/extensions
