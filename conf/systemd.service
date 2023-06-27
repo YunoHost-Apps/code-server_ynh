@@ -6,10 +6,10 @@ After=network.target multi-user.target
 Type=simple
 User=__ADMIN__
 Group=__ADMIN__
-WorkingDirectory=/home/__ADMIN__/
-EnvironmentFile=__FINALPATH__/code-server.env
-ExecStart=__FINALPATH__/bin/code-server --config __FINALPATH__/config.yaml
-StandardOutput=append:/var/log/__APP__/__APP__.log
+WorkingDirectory=/home/__ADMIN__
+EnvironmentFile=__INSTALL_DIR__/code-server.env
+ExecStart=__INSTALL_DIR__/bin/code-server --config __INSTALL_DIR__/config.yaml
+StandardOutput=append:/var/log/__APP__/__ADMIN__.log
 StandardError=inherit
 
 # Sandboxing options to harden security
