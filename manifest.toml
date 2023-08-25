@@ -17,7 +17,7 @@ userdoc = "https://coder.com/docs/code-server/latest/FAQ"
 code = "https://github.com/coder/code-server"
 
 [integration]
-yunohost = ">= 11.1.17"
+yunohost = ">= 11.2"
 architectures = ["amd64", "arm64", "armhf"]
 multi_instance = true
 ldap = false
@@ -29,7 +29,6 @@ ram.runtime = "100M"
 [install]
     [install.domain]
     type = "domain"
-    full_domain = true
 
     [install.admin]
     type = "user"
