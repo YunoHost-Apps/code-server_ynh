@@ -58,13 +58,6 @@ chmod 440 "$install_dir/code-server.env"
 chown root:$admin "$install_dir/code-server.env"
 
 #=================================================
-# SET PERMISSION FOR THE USER
-#=================================================
-ynh_permission_update --permission="main" --add="$admin"
-
-chown -R $admin:$admin "$data_dir"
-
-#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
