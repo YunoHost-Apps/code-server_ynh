@@ -83,14 +83,6 @@ chown -R root:$admin "$install_dir"
 chmod +x "$install_dir/bin/code-server"
 
 #=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
-
-# Create a dedicated NGINX config
-ynh_add_nginx_config
-
-#=================================================
 # UPDATE A CONFIG FILE
 #=================================================
 ynh_script_progression --message="Updating a configuration file..." --weight=1
@@ -111,30 +103,20 @@ chown $admin:$admin "$install_dir/config.yaml" "$install_dir/code-server.env"
 #=================================================
 ynh_script_progression --message="Upgrading systemd configuration..." --weight=1
 
+# Create a dedicated NGINX config
+ynh_add_nginx_config
+
 # Create a dedicated systemd config
 ynh_add_systemd_config
 
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1
-
 # Use logrotate to manage app-specific logfile(s)
 ynh_use_logrotate --non-append
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
 yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # SET PERMISSION FOR THE USER
 #=================================================
-ynh_permission_update --permission="main" --add="$admin"
 
 chown -R $admin:$admin "$data_dir"
 
