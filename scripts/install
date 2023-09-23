@@ -60,6 +60,7 @@ chown root:$admin "$install_dir/code-server.env"
 #=================================================
 # SET PERMISSION FOR THE USER
 #=================================================
+ynh_permission_update --permission="main" --add="$admin"
 
 chown -R $admin:$admin "$data_dir"
 
