@@ -46,13 +46,8 @@ ynh_restore_file --origin_path="/etc/logrotate.d/$app"
 
 yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$app.log"
 
-#=================================================
-# SET PERMISSION FOR THE USER
-#=================================================
 ynh_permission_update --permission="main" --add="$admin"
-
 chown -R $admin:$admin "$data_dir"
-
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
