@@ -19,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 Run VS Code on your server and access it in the browser
 
 
-**Shipped version:** 4.17.0~ynh2
+**Shipped version:** 4.17.1~ynh1
 
 ## Screenshots
 
@@ -31,7 +31,6 @@ Run VS Code on your server and access it in the browser
 * Official user documentation: <https://coder.com/docs/code-server/latest/FAQ>
 * Official admin documentation: <https://coder.com/docs/code-server/latest>
 * Upstream app code repository: <https://github.com/coder/code-server>
-* YunoHost documentation for this app: <https://yunohost.org/app_code-server>
 * Report a bug: <https://github.com/YunoHost-Apps/code-server_ynh/issues>
 
 ## Developer info
