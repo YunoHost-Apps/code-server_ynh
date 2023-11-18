@@ -31,6 +31,7 @@ Run VS Code on your server and access it in the browser
 * Official user documentation: <https://coder.com/docs/code-server/latest/FAQ>
 * Official admin documentation: <https://coder.com/docs/code-server/latest>
 * Upstream app code repository: <https://github.com/coder/code-server>
+* YunoHost Store: <https://apps.yunohost.org/app/code-server>
 * Report a bug: <https://github.com/YunoHost-Apps/code-server_ynh/issues>
 
 ## Developer info
