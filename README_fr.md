@@ -19,7 +19,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 Run VS Code on your server and access it in the browser
 
 
-**Version incluse :** 4.18.0~ynh1
+**Version incluse :** 4.19.0~ynh1
 
 ## Captures d’écran
 
