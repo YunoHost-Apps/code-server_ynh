@@ -18,8 +18,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 Run VS Code on your server and access it in the browser
 
-
-**Version incluse :** 4.22.0~ynh1
+**Version incluse :** 4.22.1~ynh1
 
 ## Captures d’écran
 
@@ -27,12 +26,12 @@ Run VS Code on your server and access it in the browser
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://coder.com>
-* Documentation officielle utilisateur : <https://coder.com/docs/code-server/latest/FAQ>
-* Documentation officielle de l’admin : <https://coder.com/docs/code-server/latest>
-* Dépôt de code officiel de l’app : <https://github.com/coder/code-server>
-* YunoHost Store: <https://apps.yunohost.org/app/code-server>
-* Signaler un bug : <https://github.com/YunoHost-Apps/code-server_ynh/issues>
+- Site officiel de l’app : <https://coder.com>
+- Documentation officielle utilisateur : <https://coder.com/docs/code-server/latest/FAQ>
+- Documentation officielle de l’admin : <https://coder.com/docs/code-server/latest>
+- Dépôt de code officiel de l’app : <https://github.com/coder/code-server>
+- YunoHost Store : <https://apps.yunohost.org/app/code-server>
+- Signaler un bug : <https://github.com/YunoHost-Apps/code-server_ynh/issues>
 
 ## Informations pour les développeurs
 
@@ -40,7 +39,7 @@ Merci de faire vos pull request sur la [branche testing](https://github.com/Yuno
 
 Pour essayer la branche testing, procédez comme suit.
 
-``` bash
+```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
 ou
 sudo yunohost app upgrade code-server -u https://github.com/YunoHost-Apps/code-server_ynh/tree/testing --debug
