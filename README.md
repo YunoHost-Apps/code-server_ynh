@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install code-server with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install code-server quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -19,7 +19,7 @@ It shall NOT be edited by hand.
 Run VS Code on your server and access it in the browser
 
 
-**Shipped version:** 4.22.1~ynh1
+**Shipped version:** 4.23.1~ynh1
 
 ## Screenshots
 
