@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 code-server
+# YunoHost 上的 code-server
 
 [![集成程度](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![工作状态](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
 
@@ -19,7 +19,7 @@
 Run VS Code on your server and access it in the browser
 
 
-**分发版本：** 4.22.1~ynh1
+**分发版本：** 4.89.0~ynh1
 
 ## 截图
 
