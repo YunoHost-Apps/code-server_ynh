@@ -26,7 +26,7 @@ services = ["__APP__"]
     optional = false
 
         [main.extensions.extensions_gallery_info]
-        type = "display_text"
+        type = "alert"
         ask = "Read more about the Extention Gallery on [code-server FAQ](https://coder.com/docs/code-server/latest/FAQ#why-cant-code-server-use-microsofts-extension-marketplace)."
         style = "info"
 
