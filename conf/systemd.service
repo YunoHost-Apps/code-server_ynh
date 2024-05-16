@@ -9,8 +9,6 @@ Group=__ADMIN__
 WorkingDirectory=/home/__ADMIN__
 EnvironmentFile=__INSTALL_DIR__/code-server.env
 ExecStart=__INSTALL_DIR__/bin/code-server --config __INSTALL_DIR__/config.yaml
-StandardOutput=append:/var/log/__APP__/__ADMIN__.log
-StandardError=inherit
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these 
