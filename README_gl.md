@@ -19,7 +19,7 @@ NON debe editarse manualmente.
 Run VS Code on your server and access it in the browser
 
 
-**Versión proporcionada:** 4.89.1~ynh1
+**Versión proporcionada:** 4.90.0~ynh1
 
 ## Capturas de pantalla
 
