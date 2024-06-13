@@ -19,7 +19,7 @@
 Run VS Code on your server and access it in the browser
 
 
-**分发版本：** 4.89.1~ynh1
+**分发版本：** 4.90.1~ynh1
 
 ## 截图
 
