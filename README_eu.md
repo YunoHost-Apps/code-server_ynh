@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # code-server YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
 
 [![Instalatu code-server YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
@@ -19,7 +19,7 @@ EZ editatu eskuz.
 Run VS Code on your server and access it in the browser
 
 
-**Paketatutako bertsioa:** 4.90.3~ynh1
+**Paketatutako bertsioa:** 4.91.0~ynh1
 
 ## Pantaila-argazkiak
 
