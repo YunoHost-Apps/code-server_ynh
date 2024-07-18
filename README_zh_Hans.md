@@ -5,7 +5,7 @@
 
 # YunoHost 上的 code-server
 
-[![集成程度](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![工作状态](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
 
 [![使用 YunoHost 安装 code-server](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
@@ -19,7 +19,7 @@
 Run VS Code on your server and access it in the browser
 
 
-**分发版本：** 4.90.3~ynh1
+**分发版本：** 4.91.1~ynh1
 
 ## 截图
 

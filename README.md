@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # code-server for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/code-server.svg)](https://dash.yunohost.org/appci/app/code-server) ![Working status](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![Integration level](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![Working status](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
 
 [![Install code-server with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
@@ -19,7 +19,7 @@ It shall NOT be edited by hand.
 Run VS Code on your server and access it in the browser
 
 
-**Shipped version:** 4.90.3~ynh1
+**Shipped version:** 4.91.1~ynh1
 
 ## Screenshots
 
