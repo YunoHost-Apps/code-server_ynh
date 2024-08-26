@@ -19,7 +19,7 @@ Ini TIDAK boleh diedit dengan tangan.
 Run VS Code on your server and access it in the browser
 
 
-**Versi terkirim:** 4.91.1~ynh1
+**Versi terkirim:** 4.92.2~ynh1
 
 ## Tangkapan Layar
 
@@ -30,7 +30,7 @@ Run VS Code on your server and access it in the browser
 - Website aplikasi resmi: <https://coder.com>
 - Dokumentasi pengguna resmi: <https://coder.com/docs/code-server/latest/FAQ>
 - Dokumentasi admin resmi: <https://coder.com/docs/code-server/latest>
-- Repositori kode aplikasi hulu: <https://github.com/coder/code-server>
+- Depot kode aplikasi hulu: <https://github.com/coder/code-server>
 - Gudang YunoHost: <https://apps.yunohost.org/app/code-server>
 - Laporkan bug: <https://github.com/YunoHost-Apps/code-server_ynh/issues>
 
