@@ -19,7 +19,7 @@ No se debe editar a mano.
 Run VS Code on your server and access it in the browser
 
 
-**Versión actual:** 4.92.2~ynh1
+**Versión actual:** 4.93.1~ynh1
 
 ## Capturas
 
@@ -36,7 +36,7 @@ Run VS Code on your server and access it in the browser
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/code-server_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/code-server_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
