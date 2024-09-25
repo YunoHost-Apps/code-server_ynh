@@ -19,7 +19,7 @@ It shall NOT be edited by hand.
 Run VS Code on your server and access it in the browser
 
 
-**Shipped version:** 4.92.2~ynh1
+**Shipped version:** 4.93.1~ynh1
 
 ## Screenshots
 
