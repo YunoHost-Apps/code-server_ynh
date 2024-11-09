@@ -19,7 +19,7 @@ Ini TIDAK boleh diedit dengan tangan.
 Run VS Code on your server and access it in the browser
 
 
-**Versi terkirim:** 4.93.1~ynh1
+**Versi terkirim:** 4.95.1~ynh1
 
 ## Tangkapan Layar
 
