@@ -19,7 +19,7 @@ Hij mag NIET handmatig aangepast worden.
 Run VS Code on your server and access it in the browser
 
 
-**Geleverde versie:** 4.93.1~ynh1
+**Geleverde versie:** 4.95.2~ynh1
 
 ## Schermafdrukken
 
