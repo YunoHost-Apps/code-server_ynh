@@ -19,7 +19,7 @@ No se debe editar a mano.
 Run VS Code on your server and access it in the browser
 
 
-**Versión actual:** 4.95.2~ynh1
+**Versión actual:** 4.95.3~ynh1
 
 ## Capturas
 
