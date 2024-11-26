@@ -5,7 +5,9 @@
 
 # code-server для YunoHost
 
-[![Уровень интеграции](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![Состояние работы](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Состояние сопровождения](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/code-server)](https://ci-apps.yunohost.org/ci/apps/code-server/)
+![Состояние работы](https://apps.yunohost.org/badge/state/code-server)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/code-server)
 
 [![Установите code-server с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 

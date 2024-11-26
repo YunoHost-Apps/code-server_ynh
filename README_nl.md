@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # code-server voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/code-server)](https://ci-apps.yunohost.org/ci/apps/code-server/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/code-server)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/code-server)
 
 [![code-server met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 

@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # code-server para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/code-server)](https://ci-apps.yunohost.org/ci/apps/code-server/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/code-server)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/code-server)
 
 [![Instalar code-server con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 

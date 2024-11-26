@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # code-server YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/code-server.svg)](https://ci-apps.yunohost.org/ci/apps/code-server/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/code-server.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/code-server.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/code-server)](https://ci-apps.yunohost.org/ci/apps/code-server/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/code-server)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/code-server)
 
 [![Instalatu code-server YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=code-server)
 
