@@ -21,7 +21,7 @@ EZ editatu eskuz.
 Run VS Code on your server and access it in the browser
 
 
-**Paketatutako bertsioa:** 4.95.3~ynh1
+**Paketatutako bertsioa:** 4.96.2~ynh1
 
 ## Pantaila-argazkiak
 
