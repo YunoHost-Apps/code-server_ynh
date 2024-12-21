@@ -21,7 +21,7 @@ Nie powinno być ono edytowane ręcznie.
 Run VS Code on your server and access it in the browser
 
 
-**Dostarczona wersja:** 4.96.1~ynh1
+**Dostarczona wersja:** 4.96.2~ynh1
 
 ## Zrzuty ekranu
 
