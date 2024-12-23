@@ -18,9 +18,8 @@ ynh_script_progression "Setting up source files..."
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R root:$admin "$install_dir"
-chmod +x "$install_dir/bin/code-server"
+chown -R root:$admin "$install_dir"
+chmod g+x "$install_dir/bin/code-server"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -44,12 +43,12 @@ yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$a
 ynh_script_progression "Adding $app's configuration..."
 
 ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 440 "$install_dir/config.yaml"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown root:$admin "$install_dir/config.yaml"
+chmod 440 "$install_dir/config.yaml"
+chown root:$admin "$install_dir/config.yaml"
 
 ynh_config_add --template="code-server.env" --destination="$install_dir/code-server.env"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 440 "$install_dir/code-server.env"
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown root:$admin "$install_dir/code-server.env"
+chmod 440 "$install_dir/code-server.env"
+chown root:$admin "$install_dir/code-server.env"
 
 #=================================================
 # SET PERMISSION FOR THE USER
