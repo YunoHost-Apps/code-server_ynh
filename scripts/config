@@ -1,20 +1,12 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC STARTING
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source /usr/share/yunohost/helpers
-
-ynh_abort_if_errors
 
 #=================================================
 # RETRIEVE ARGUMENTS
 #=================================================
 
-final_path=$(ynh_app_setting_get $app final_path)
+install_dir=$(ynh_app_setting_get --key=install_dir)
 
 #=================================================
 # SPECIFIC GETTERS FOR TOML SHORT KEY
@@ -25,7 +17,7 @@ get__password() {
 }
 
 get__enable_proposed_api() {
-    echo "$(awk '/enable-proposed-api:/ {print $2}' $final_path/config.yaml)"
+    echo "$(awk '/enable-proposed-api:/ {print $2}' $install_dir/config.yaml)"
 }
 
 # TODO: Write some getters and setters for __EXTENSIONS_GALLERY__ to go back to json directly
@@ -46,9 +38,9 @@ set__password() {
         sed -i "/hashed-password:.*/d" "$final_path/config.yaml"
 
         echo "hashed-password: $hashed_password" >> "$final_path/config.yaml"
-        ynh_store_file_checksum --file="$final_path/config.yaml"
+        ynh_store_file_checksum "$final_path/config.yaml"
 
-        ynh_app_setting_set $app hashed_password "$hashed_password"
+        ynh_app_setting_set --key=hashed_password --value="$hashed_password"
     fi
 }
 
@@ -56,12 +48,10 @@ set__enable_proposed_api() {
     sed -i "/enable-proposed-api:.*/d" "$final_path/config.yaml"
 
     echo "enable-proposed-api: $enable_proposed_api" >> "$final_path/config.yaml"
-    ynh_store_file_checksum --file="$final_path/config.yaml"
+    ynh_store_file_checksum "$final_path/config.yaml"
 
-    ynh_app_setting_set $app enable_proposed_api "$enable_proposed_api"
+    ynh_app_setting_set --key=enable_proposed_api --value="$enable_proposed_api"
 }
 
-#=================================================
-# GENERIC FINALIZATION
 #=================================================
 ynh_app_config_run $1
