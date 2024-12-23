@@ -40,7 +40,7 @@ set__password() {
         echo "hashed-password: $hashed_password" >> "$final_path/config.yaml"
         ynh_store_file_checksum "$final_path/config.yaml"
 
-        ynh_app_setting_set $app hashed_password "$hashed_password"
+        ynh_app_setting_set --key=hashed_password --value="$hashed_password"
     fi
 }
 
@@ -50,7 +50,7 @@ set__enable_proposed_api() {
     echo "enable-proposed-api: $enable_proposed_api" >> "$final_path/config.yaml"
     ynh_store_file_checksum "$final_path/config.yaml"
 
-    ynh_app_setting_set $app enable_proposed_api "$enable_proposed_api"
+    ynh_app_setting_set --key=enable_proposed_api --value="$enable_proposed_api"
 }
 
 #=================================================
