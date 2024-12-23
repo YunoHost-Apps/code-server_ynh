@@ -6,7 +6,7 @@ source /usr/share/yunohost/helpers
 # RETRIEVE ARGUMENTS
 #=================================================
 
-final_path=$(ynh_app_setting_get $app final_path)
+install_dir=$(ynh_app_setting_get $app install_dir)
 
 #=================================================
 # SPECIFIC GETTERS FOR TOML SHORT KEY
@@ -17,7 +17,7 @@ get__password() {
 }
 
 get__enable_proposed_api() {
-    echo "$(awk '/enable-proposed-api:/ {print $2}' $final_path/config.yaml)"
+    echo "$(awk '/enable-proposed-api:/ {print $2}' $install_dir/config.yaml)"
 }
 
 # TODO: Write some getters and setters for __EXTENSIONS_GALLERY__ to go back to json directly
