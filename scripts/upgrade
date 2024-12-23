@@ -74,8 +74,8 @@ chmod g+x "$install_dir/bin/code-server"
 ynh_script_progression "Updating configuration..."
 
 ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
-chmod 440 "$install_dir/config.yaml" "$install_dir/code-server.env"
-chown $admin:$admin "$install_dir/config.yaml" "$install_dir/code-server.env"
+chmod 440 "$install_dir/config.yaml"
+chown $admin:$admin "$install_dir/config.yaml"
 
 ynh_config_add --template="code-server.env" --destination="$install_dir/code-server.env"
 chmod 440 "$install_dir/code-server.env"
