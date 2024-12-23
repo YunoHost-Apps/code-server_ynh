@@ -5,7 +5,7 @@ name = "code-server"
 description.en = "Run VS Code on your server and access it in the browser"
 description.fr = "Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur"
 
-version = "4.96.2~ynh1"
+version = "4.96.2~ynh2"
 
 maintainers = ["Tagada"]
 
