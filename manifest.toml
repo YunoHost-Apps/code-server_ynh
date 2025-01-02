@@ -53,6 +53,7 @@ ram.runtime = "100M"
     [resources.system_user]
 
     [resources.install_dir]
+    dir = "/opt/yunohost/__APP__"
 
     [resources.data_dir]
     subdirs = ["user-data", "extensions"]
