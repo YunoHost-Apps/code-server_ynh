@@ -21,7 +21,7 @@ No se debe editar a mano.
 Run VS Code on your server and access it in the browser
 
 
-**Versión actual:** 4.97.2~ynh1
+**Versión actual:** 4.98.0~ynh1
 
 ## Capturas
 
