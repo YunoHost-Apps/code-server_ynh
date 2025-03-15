@@ -21,7 +21,7 @@
 Run VS Code on your server and access it in the browser
 
 
-**Поставляемая версия:** 4.98.0~ynh1
+**Поставляемая версия:** 4.98.2~ynh1
 
 ## Снимки экрана
 
