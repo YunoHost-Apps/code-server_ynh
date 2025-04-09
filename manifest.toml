@@ -1,3 +1,5 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
 packaging_format = 2
 
 id = "code-server"
@@ -21,8 +23,11 @@ yunohost = ">= 11.2.18"
 helpers_version = "2.1"
 architectures = ["amd64", "arm64", "armhf"]
 multi_instance = true
+
 ldap = false
+
 sso = false
+
 disk = "500M"
 ram.build = "50M"
 ram.runtime = "100M"
@@ -35,20 +40,18 @@ ram.runtime = "100M"
     type = "user"
 
 [resources]
-        [resources.sources.main]
-        amd64.url = "https://github.com/coder/code-server/releases/download/v4.99.1/code-server-4.99.1-linux-amd64.tar.gz"
-        amd64.sha256 = "90eae240b05cc7c9f214b0734bf3ed964060bf6fca9301a81a48255abbaee291"
-        arm64.url = "https://github.com/coder/code-server/releases/download/v4.99.1/code-server-4.99.1-linux-arm64.tar.gz"
-        arm64.sha256 = "a8099cc5025d9f3781c71a9b81fd013e69d32ba672c85c99a5a252724a601b66"
-        armhf.url = "https://github.com/coder/code-server/releases/download/v4.99.1/code-server-4.99.1-linux-armv7l.tar.gz"
-        armhf.sha256 = "d34472a4b529debf8b112ff1b01fce58b77b0f6c8c5d2580c9080950ffc105b7"
+    [resources.sources.main]
+    amd64.url = "https://github.com/coder/code-server/releases/download/v4.99.1/code-server-4.99.1-linux-amd64.tar.gz"
+    amd64.sha256 = "90eae240b05cc7c9f214b0734bf3ed964060bf6fca9301a81a48255abbaee291"
+    arm64.url = "https://github.com/coder/code-server/releases/download/v4.99.1/code-server-4.99.1-linux-arm64.tar.gz"
+    arm64.sha256 = "a8099cc5025d9f3781c71a9b81fd013e69d32ba672c85c99a5a252724a601b66"
+    armhf.url = "https://github.com/coder/code-server/releases/download/v4.99.1/code-server-4.99.1-linux-armv7l.tar.gz"
+    armhf.sha256 = "d34472a4b529debf8b112ff1b01fce58b77b0f6c8c5d2580c9080950ffc105b7"
 
-        autoupdate.strategy = "latest_github_release"
-        autoupdate.asset.arm64 = "code-server-.*-linux-arm64.tar.gz"
-        autoupdate.asset.amd64 = "code-server-.*-linux-amd64.tar.gz"
-        autoupdate.asset.armhf = "code-server-.*-linux-armv7l.tar.gz"
-
-    [resources.ports]
+    autoupdate.strategy = "latest_github_release"
+    autoupdate.asset.arm64 = "code-server-.*-linux-arm64.tar.gz"
+    autoupdate.asset.amd64 = "code-server-.*-linux-amd64.tar.gz"
+    autoupdate.asset.armhf = "code-server-.*-linux-armv7l.tar.gz"
 
     [resources.system_user]
 
@@ -60,3 +63,5 @@ ram.runtime = "100M"
 
     [resources.permissions]
     main.url = "/"
+
+    [resources.ports]

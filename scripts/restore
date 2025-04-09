@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 # Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
@@ -11,8 +15,7 @@ ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
 
-
-chown -R root:$admin "$install_dir"
+chown -R "root:$admin" "$install_dir"
 chmod g+x "$install_dir/bin/code-server"
 
 #=================================================
@@ -22,33 +25,30 @@ ynh_script_progression "Restoring the data directory..."
 
 ynh_restore "$data_dir"
 
-chown -R $admin:$admin "$data_dir"
+chown -R "$admin:$admin" "$data_dir"
 
 #=================================================
-# SPECIFIC RESTORATION
+# RESTORE SYSTEM CONFIGURATION
 #=================================================
-# RESTORE SYSTEMD
-#=================================================
-ynh_script_progression "Restoring $app's systemd service..."
+ynh_script_progression "Restoring system configurations related to $app..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_restore "/etc/systemd/system/$app.service"
-systemctl enable $app.service --quiet
+systemctl enable "$app.service" --quiet
+yunohost service add "$app" --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 mkdir -p "/var/log/$app"
 ynh_restore "/etc/logrotate.d/$app"
 
-yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$app.log"
-
 ynh_permission_update --permission="main" --add="$admin"
-chown -R $admin:$admin "$data_dir"
+chown -R "$admin:$admin" "$data_dir"
 #=================================================
-# START SYSTEMD SERVICE
+# RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================
-ynh_script_progression "Starting $app's systemd service..."
+ynh_script_progression "Reloading NGINX web server and $app's service..."
 
-ynh_systemctl --service=$app --action="start"
+ynh_systemctl --service="$app" --action="start"
 
 ynh_systemctl --service=nginx --action=reload
 
