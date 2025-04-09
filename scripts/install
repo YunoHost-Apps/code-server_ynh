@@ -1,10 +1,14 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
+# INITIALIZE AND STORE SETTINGS
 #=================================================
 
 auth="none"
@@ -15,47 +19,46 @@ ynh_app_setting_set --key=auth --value=$auth
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
+# Download, check integrity, uncompress and patch the source from manifest.toml
 ynh_setup_source --dest_dir="$install_dir"
 
-chown -R root:$admin "$install_dir"
+chown -R "root:$admin" "$install_dir"
 chmod g+x "$install_dir/bin/code-server"
 
 #=================================================
-# NGINX CONFIGURATION
+# APP INITIAL CONFIGURATION
 #=================================================
-ynh_script_progression "Configuring NGINX web server..."
+ynh_script_progression "Adding $app's configuration files..."
 
-# Create a dedicated NGINX config
+ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
+chmod 440 "$install_dir/config.yaml"
+chown "root:$admin" "$install_dir/config.yaml"
+
+ynh_config_add --template="code-server.env" --destination="$install_dir/code-server.env"
+chmod 440 "$install_dir/code-server.env"
+chown "root:$admin" "$install_dir/code-server.env"
+
+#=================================================
+# SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression "Adding system configurations related to $app..."
+
+# Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_config_add_nginx
 
 # Create a dedicated systemd config
 ynh_config_add_systemd
+yunohost service add "$app" --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
-
-yunohost service add $app --description="VS Code Server" --log="/var/log/$app/$app.log"
-
-#=================================================
-# ADD A CONFIGURATION
-#=================================================
-ynh_script_progression "Adding $app's configuration..."
-
-ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
-chmod 440 "$install_dir/config.yaml"
-chown root:$admin "$install_dir/config.yaml"
-
-ynh_config_add --template="code-server.env" --destination="$install_dir/code-server.env"
-chmod 440 "$install_dir/code-server.env"
-chown root:$admin "$install_dir/code-server.env"
 
 #=================================================
 # SET PERMISSION FOR THE USER
 #=================================================
 ynh_permission_update --permission="main" --add="$admin"
 
-chown -R $admin:$admin "$data_dir"
+chown -R "$admin:$admin" "$data_dir"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -63,7 +66,7 @@ chown -R $admin:$admin "$data_dir"
 ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemctl --service=$app --action="start"
+ynh_systemctl --service="$app" --action="start"
 
 #=================================================
 # END OF SCRIPT
