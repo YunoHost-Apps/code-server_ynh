@@ -4,14 +4,14 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/master/logos/code-server.png" width="32px" alt="Logo of code-server">
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/code-server.png" width="32px" alt="Logo of code-server">
   code-server, packaged for YunoHost
 </h1>
 
 Run VS Code on your server and access it in the browser
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://coder.com)
-![Version: 4.99.1~ynh1](https://img.shields.io/badge/Version-4.99.1~ynh1-rgba(0,150,0,1)?style=for-the-badge)
+[![Version: 4.99.3~ynh1](https://img.shields.io/badge/Version-4.99.3~ynh1-rgba(0,150,0,1)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/code-server/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/code-server"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
