@@ -66,4 +66,4 @@ ram.runtime = "100M"
     [resources.ports]
 
     [resources.apt]
-        packages = "argon2"
+    packages = "argon2"
