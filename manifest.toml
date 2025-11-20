@@ -65,3 +65,6 @@ ram.runtime = "100M"
     main.url = "/"
 
     [resources.ports]
+
+    [resources.apt]
+        packages = "argon2"
