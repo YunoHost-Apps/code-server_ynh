@@ -85,7 +85,6 @@ then
 	echo "hashed-password: $hashed_password" >> "$install_dir/config.yaml"
 fi
 
-
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
 #=================================================
@@ -94,6 +93,7 @@ ynh_script_progression "Upgrading system configurations related to $app..."
 ynh_config_add_nginx
 
 ynh_config_add_systemd
+
 yunohost service add "$app" --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 ynh_config_add_logrotate
@@ -101,6 +101,7 @@ ynh_config_add_logrotate
 #=================================================
 # SET PERMISSION FOR THE USER
 #=================================================
+
 ynh_permission_update --permission="main" --add="$admin"
 
 chown -R "$admin:$admin" "$data_dir"

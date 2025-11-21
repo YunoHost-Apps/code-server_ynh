@@ -37,22 +37,23 @@ get__enable_proposed_api() {
 set__password() {
     if [ $password ]
     then
-        hashed_password="$(printf "$password" | sha256sum | cut -d' ' -f1)"
+        salt=$(ynh_string_random)
+        hashed_password=$(echo -n $password | argon2 $salt -id -e)
 
-        sed -i "/hashed-password:.*/d" "$final_path/config.yaml"
+        sed -i "/hashed-password:.*/d" "$install_dir/config.yaml" || true
 
-        echo "hashed-password: $hashed_password" >> "$final_path/config.yaml"
-        ynh_store_file_checksum "$final_path/config.yaml"
+        echo "hashed-password: $hashed_password" >> "$install_dir/config.yaml"
+        ynh_store_file_checksum "$install_dir/config.yaml"
 
         ynh_app_setting_set --key=hashed_password --value="$hashed_password"
     fi
 }
 
 set__enable_proposed_api() {
-    sed -i "/enable-proposed-api:.*/d" "$final_path/config.yaml"
+    sed -i "/enable-proposed-api:.*/d" "$install_dir/config.yaml"
 
-    echo "enable-proposed-api: $enable_proposed_api" >> "$final_path/config.yaml"
-    ynh_store_file_checksum "$final_path/config.yaml"
+    echo "enable-proposed-api: $enable_proposed_api" >> "$install_dir/config.yaml"
+    ynh_store_file_checksum "$install_dir/config.yaml"
 
     ynh_app_setting_set --key=enable_proposed_api --value="$enable_proposed_api"
 }

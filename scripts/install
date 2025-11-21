@@ -56,6 +56,7 @@ ynh_config_add_logrotate
 #=================================================
 # SET PERMISSION FOR THE USER
 #=================================================
+
 ynh_permission_update --permission="main" --add="$admin"
 
 chown -R "$admin:$admin" "$data_dir"
