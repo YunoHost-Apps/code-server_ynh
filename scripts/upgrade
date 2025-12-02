@@ -67,6 +67,8 @@ ynh_setup_source --dest_dir="$install_dir" --full_replace
 chown -R "root:$admin" "$install_dir"
 chmod g+x "$install_dir/bin/code-server"
 
+chown -R "$admin:$admin" "$data_dir"
+
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
@@ -97,14 +99,6 @@ ynh_config_add_systemd
 yunohost service add "$app" --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 ynh_config_add_logrotate
-
-#=================================================
-# SET PERMISSION FOR THE USER
-#=================================================
-
-ynh_permission_update --permission="main" --add="$admin"
-
-chown -R "$admin:$admin" "$data_dir"
 
 #=================================================
 # START SYSTEMD SERVICE
