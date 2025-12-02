@@ -36,6 +36,7 @@ ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_restore "/etc/systemd/system/$app.service"
 systemctl enable "$app.service" --quiet
+
 yunohost service add "$app" --description="VS Code Server" --log="/var/log/$app/$app.log"
 
 mkdir -p "/var/log/$app"
@@ -43,6 +44,7 @@ ynh_restore "/etc/logrotate.d/$app"
 
 ynh_permission_update --permission="main" --add="$admin"
 chown -R "$admin:$admin" "$data_dir"
+
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================

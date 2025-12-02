@@ -7,7 +7,7 @@ name = "code-server"
 description.en = "Run VS Code on your server and access it in the browser"
 description.fr = "Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur"
 
-version = "4.105.1~ynh1"
+version = "4.106.3~ynh1"
 
 maintainers = ["Tagada"]
 
@@ -19,13 +19,12 @@ userdoc = "https://coder.com/docs/code-server/latest/FAQ"
 code = "https://github.com/coder/code-server"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = ["amd64", "arm64", "armhf"]
 multi_instance = true
 
 ldap = false
-
 sso = false
 
 disk = "500M"
@@ -41,12 +40,12 @@ ram.runtime = "100M"
 
 [resources]
     [resources.sources.main]
-    amd64.url = "https://github.com/coder/code-server/releases/download/v4.105.1/code-server-4.105.1-linux-amd64.tar.gz"
-    amd64.sha256 = "e2843456df7e1b0a7ee03315b572a2c4317237f14529ab2f7dda8d85309f08f0"
-    arm64.url = "https://github.com/coder/code-server/releases/download/v4.105.1/code-server-4.105.1-linux-arm64.tar.gz"
-    arm64.sha256 = "506e3ca055702035c268f89d969f7f4180f8dc2a34d376b83f725016fc441791"
-    armhf.url = "https://github.com/coder/code-server/releases/download/v4.105.1/code-server-4.105.1-linux-armv7l.tar.gz"
-    armhf.sha256 = "783bd09f761ef780142295e693c7d9399eb464475dacbeca99d74d3784e43555"
+    amd64.url = "https://github.com/coder/code-server/releases/download/v4.106.3/code-server-4.106.3-linux-amd64.tar.gz"
+    amd64.sha256 = "338be5e3820a1dda8578cf75015b79042aed80a8c32012840d92001f48d41d8a"
+    arm64.url = "https://github.com/coder/code-server/releases/download/v4.106.3/code-server-4.106.3-linux-arm64.tar.gz"
+    arm64.sha256 = "24960d74e6d101c22d00e87cc8c1fbc721d6e829af309040c3e8f1242a507afc"
+    armhf.url = "https://github.com/coder/code-server/releases/download/v4.106.3/code-server-4.106.3-linux-armv7l.tar.gz"
+    armhf.sha256 = "16af7f25ba0727e515d223716c26faa012671b331bf3f0e218fc61a55991e30f"
 
     autoupdate.strategy = "latest_github_release"
     autoupdate.asset.arm64 = "code-server-.*-linux-arm64.tar.gz"
@@ -65,3 +64,6 @@ ram.runtime = "100M"
     main.url = "/"
 
     [resources.ports]
+
+    [resources.apt]
+    packages = "argon2"
