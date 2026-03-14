@@ -7,7 +7,7 @@ name = "code-server"
 description.en = "Run VS Code on your server and access it in the browser"
 description.fr = "Lancez VS Code sur votre serveur et accédez-y depuis votre navigateur"
 
-version = "4.110.0~ynh1"
+version = "4.111.0~ynh1"
 
 maintainers = ["Tagada"]
 
@@ -40,12 +40,12 @@ ram.runtime = "100M"
 
 [resources]
     [resources.sources.main]
-    amd64.url = "https://github.com/coder/code-server/releases/download/v4.110.0/code-server-4.110.0-linux-amd64.tar.gz"
-    amd64.sha256 = "fa0698f37b51e1e3b22c511d54685bc698a0f5d8b7d4baa8b60de012faeba343"
-    arm64.url = "https://github.com/coder/code-server/releases/download/v4.110.0/code-server-4.110.0-linux-arm64.tar.gz"
-    arm64.sha256 = "750758e22164619ad0e33af63135ce4927c1b5a4cbafbce16ce9edde22557519"
-    armhf.url = "https://github.com/coder/code-server/releases/download/v4.110.0/code-server-4.110.0-linux-armv7l.tar.gz"
-    armhf.sha256 = "9e5d6388df9d2d6c5e4ce533da987d774a17d1e19dcee3fbe101923330620f8d"
+    amd64.url = "https://github.com/coder/code-server/releases/download/v4.111.0/code-server-4.111.0-linux-amd64.tar.gz"
+    amd64.sha256 = "38fc3e77791d69c40fe400fb9b681bb68d320a7fef8b4f517bfe96b53ceff0ad"
+    arm64.url = "https://github.com/coder/code-server/releases/download/v4.111.0/code-server-4.111.0-linux-arm64.tar.gz"
+    arm64.sha256 = "05cb58946e6a308b125d340e873836920727c92f63006815a38e735a4418cf4f"
+    armhf.url = "https://github.com/coder/code-server/releases/download/v4.111.0/code-server-4.111.0-linux-armv7l.tar.gz"
+    armhf.sha256 = "7510ae1ddca95431d09a3722acfd253b29f733d2e92256b64fbb9facecb6b25d"
 
     autoupdate.strategy = "latest_github_release"
     autoupdate.asset.arm64 = "code-server-.*-linux-arm64.tar.gz"
