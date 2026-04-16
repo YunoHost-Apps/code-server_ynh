@@ -35,6 +35,10 @@ ram.runtime = "100M"
     [install.domain]
     type = "domain"
 
+    [install.path]
+    type = "path"
+    default = "/code"
+
     [install.admin]
     type = "user"
 
